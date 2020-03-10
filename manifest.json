@@ -1,0 +1,20 @@
+{
+    "name":"Water Reminder",
+    "version":"1.0",
+    "manifest_version":2,
+    "browser_action":{
+        "default_title":"Water Reminder"
+    },
+    "content_scripts": [
+        {
+        "matches": ["<all_urls>"],
+        "js": ["jquery.js","content.js"]
+        }
+    ],
+    "permissions":[
+        "tabs"
+    ],
+    "background": {
+      "scripts": ["background.js"]
+    }
+}
