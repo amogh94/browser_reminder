@@ -39,19 +39,31 @@ chrome.runtime.onConnect.addListener(function (externalPort) {
     });
 });
 
-chrome.windows.onCreated.addListener(()=>{
-    let intervalProperties = properties;
-    if(Object.keys(properties).length==0){
-        intervalProperties = defaultProperties;
-    }else{
-        intervalProperties = properties;
-    }
-    setInterval(()=>{
-        if(Object.keys(properties).length==0){
+async function getIntervalProperties(){
+    let intervalProperties;
+    try{
+        let fresult = await new Promise((resolve,reject)=>{
+            chrome.storage.sync.get(localStorageKey,fetchedResult=>{resolve(fetchedResult);});
+        });
+        fresult = fresult[localStorageKey];
+        if(!fresult || Object.keys(fresult).length==0){
             intervalProperties = defaultProperties;
         }else{
-            intervalProperties = properties;
-        }
+            intervalProperties = fresult;
+        } 
+    }catch(e){
+        intervalProperties = defaultProperties;
+
+    }
+    intervalProperties.blankAfter = parseFloat(intervalProperties.blankAfter);
+    intervalProperties.duration = parseFloat(intervalProperties.duration);
+    return intervalProperties;
+}
+
+chrome.windows.onCreated.addListener( async ()=>{
+    let intervalProperties = await getIntervalProperties();
+    
+    setInterval(()=>{
         chrome.tabs.query({},(tabs)=>{
             for(const tab of tabs){
                 chrome.tabs.sendMessage(tab.id,intervalProperties);
