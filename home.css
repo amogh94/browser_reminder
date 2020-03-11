@@ -1,0 +1,33 @@
+body {
+	padding: 0;
+	margin: 0;
+	min-width: 500px;
+	max-width: 500px;
+	font-size: 16px;
+}
+
+
+#app{
+	padding: 10px;
+}
+
+#app div{
+	/*border: 1px solid black;*/
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+}
+
+span{
+	min-width: 75%;
+	display: inherit;
+}
+
+input[class=number]{
+	float:right;
+	min-width: 25%;
+}
+
+#msg{
+	width: 100%;
+}

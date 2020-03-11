@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Reminder</title>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+    	<div id="app">
+            <div>
+                <span>Show reminder every __ minutes</span>
+                <input id="n_sec" class="number" max="60" min="10">
+            </div>
+            <hr>
+            <div>
+                <span>Display reminder message for __ minutes</span>
+                <input id="m_sec" class="number" max="5" min="1">
+            </div>
+            <hr>
+            <div>
+                <span>Message to be shown: </span>
+                <textarea id="msg" type="text" maxlength="500"></textarea>
+            </div>
+    	</div>
+        <script src="jquery.js"></script>
+        <script src="home.js"></script>
+	</body>
+</html>
