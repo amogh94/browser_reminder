@@ -13,7 +13,7 @@ Timing and message are configurable.
 
 ![](https://github.com/amogh94/browser_reminder/blob/master/demo.gif)
 
-# How to install
+## How to install
 
 - Clone this repository.
 - Type the following URL on the browser:
@@ -25,7 +25,7 @@ chrome://extensions
 
 You should be able to see this extension on your browser toolbar now.
 
-# Contribute
+## Contribute
 
 All forms of contributions are welcome, such as:
 - CSS / UI Improvements
